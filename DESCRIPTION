@@ -1,13 +1,41 @@
 Package: PcAux
 Title: Principle Components Auxiliary Variables
 Version: 0.0.0.9015
-Authors@R: 
-    person(given = "Danny",
-           family = "Squire",
-           role = c("aut", "cre"),
-           comment = c(ORCID = "0000-0001-7423-9274"))
-Maintainer: Danny Squire <danny.squire@ttu.edu>
-Description: What the package does (one paragraph).
+Authors@R: c(
+    person(given = "Kyle",
+      family = "Lang",
+      role = c("aut", "cre"),
+      email = "k.m.lang@uvt.nl"),
+    person(given = "Todd",
+      family = "Little",
+      role = c("aut"),
+      email = "todd.little@ttu.edu"),
+    person(given = "Steven",
+      family = "Chesnut",
+      role = c("ctb")),
+    person(given = "Vibhuti",
+      family = "Gupta",
+      role = c("ctb")),
+    person(given = "Byungkwan",
+      family = "Jung",
+      role = c("ctb")),
+    person(given = "Pavel",
+      family = "Panko",
+      role = c("ctb")),
+    person(given = "Luke",
+      family = "Waggenspack",
+      role = c("ctb")),
+    person(given = "Danny", 
+      family = "Squire",
+      role = c("ctb"),
+      email = "danny.squire@ttu.edu",
+      comment = c(ORCID = "0000-0001-7423-9274")),
+    person(given = "Daniel",
+      family = "Bontempo",
+      role = c("ctb"),
+      email = "daniel.bontempo@ttu.edu")
+)
+Description: Automatically extract auxiliary features for simple, principled missing data analysis.
 License: GPL (>= 3)
 Encoding: UTF-8
 LazyData: true
