@@ -1,0 +1,19 @@
+# YAML 1.2
+---
+authors: 
+  -
+    family-names: Lang
+    given-names: Kyle
+    name-particle: "M."
+  -
+    family-names: Little
+    given-names: Todd
+cff-version: "1.1.0"
+license: "GPL-3.0"
+message: |
+    "Please cite the following works when using this software.
+    
+     Waylon J. Howard, Mijke Rhemtulla & Todd D. Little (2015) Using Principal Components as Auxiliary Variables in Missing Data Estimation, Multivariate Behavioral Research, 50:3, 285-299, DOI: 10.1080/00273171.2014.999267"
+title: "PcAux: Automatically extract auxiliary features for simple, principled missing data analysis"
+version: "0.0.0.9014"
+...
