@@ -465,7 +465,7 @@ PcAuxData$
         castData = function()
         {
             "Cast all variables to the appropriate measurement level"
-            for(i in 1 : ncol(data)) {
+          for(i in seq_len(ncol(data))) {
                 data[ , i] <<-
                     switch(typeVec[i],
                            drop       =              data[ , i],
@@ -879,7 +879,7 @@ PcAuxData$
             ## Impose the requested completion format:
             if(compFormat == "long") {
                 .imp <- rep(c(1 : nImps), each = nrow(data))
-                .id  <- rep(c(1 : nrow(data)), nImps       )
+                .id  <- rep(c(seq_len(nrow(data))), nImps)
                 miDatasets <<-
                     data.frame(.imp, .id, do.call(rbind.data.frame, miDatasets))
             }
@@ -967,7 +967,7 @@ PcAuxData$
             ## If any PcAux are involved, orthogonalize the interaction terms
             ## w.r.t. the linear PcAux scores:
             if(intMeth > 1)
-                for(v in 1 : ncol(interact))
+              for(v in seq_len(ncol(interact)))
                     interact[ , v] <<-
                         .lm.fit(y = interact[ , v],
                                 x = as.matrix(pcAux$lin[ , pcNames]))$resid
@@ -1000,7 +1000,7 @@ PcAuxData$
             )
 
             ## Make sure missing values are retained in dummy codes:
-            oldOpt <- options(na.action = "na.pass")
+            oldOpt <- withr::with_options(na.action = "na.pass")
 
             ## Create the polynominal terms:
             if(length(dataNames) == 1) # Hack for only one target variable
@@ -1017,7 +1017,7 @@ PcAuxData$
                 )[ , -1]
 
             ## Reset the na.action option:
-            options(na.action = oldOpt$na.action)
+            withr::with_options(na.action = oldOpt$na.action)
 
             ## Revert ordinal variable casting:
             if(length(ordVars) > 0) castOrdVars(toNumeric = FALSE)
@@ -1052,7 +1052,7 @@ PcAuxData$
                 ## Expand factors into dummy codes:
 
                 ## Make sure missing values are retained in dummy codes:
-                oldOpt <- options(na.action = "na.pass")
+                oldOpt <- withr::with_options(na.action = "na.pass")
 
                 ## Create/store dummy codes:
                 tmp <- data.frame(
@@ -1061,7 +1061,7 @@ PcAuxData$
                 dumNames <- colnames(tmp)
 
                 ## Reset the na.action option:
-                options(na.action = oldOpt$na.action)
+                withr::with_options(na.action = oldOpt$na.action)
 
                 ## Remove dummy codes for empty factor levels:
                 levVec                 <-  sapply(tmp, countLevels)

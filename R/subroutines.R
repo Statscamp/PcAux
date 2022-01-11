@@ -457,7 +457,7 @@ doGroupMeanSub <- function(map) {
             map$createPatterns()
         }
 
-        for(i in 1 : length(map$patterns)) {
+      for(i in seq_len(map$patterns)) {
             ## Find the unique grouping patterns
             patLevels <- unique(map$patterns[[i]])
 
@@ -490,7 +490,7 @@ doGroupMeanSub <- function(map) {
 
 ## Fill a variable's missing values with appropriate group-means:
 fillWithGroupMean <- function(v, pat, patLevs) {
-    for(k in 1 : length(patLevs)) {
+  for(k in seq_length(length(patLevs))) {
         subData <- subset(v, pat == patLevs[k])
 
         if(all(is.na(subData))) tmp <- NA
