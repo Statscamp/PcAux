@@ -70,26 +70,26 @@ createDummyIdValues <- function(x) {
 ### Calculate various kinds of 'correlation' coefficient:
 flexLinearAssoc <- function(varNames, map, checkMat = FALSE, autoType = FALSE)
 {
-    options(warn = -1)# Suppress warnings
-    
+  withr::with_options(warn = -1) # Suppress warnings
+
     ## Find the class of the target variables:
     if(autoType) {# HACK: Find a better way to do this.
         varType <- rep("continuous", 2)
         tmp     <- map$data[ , varNames]
-        
+
         check <- unlist(lapply(tmp, is.factor))
         if(any(check)) varType[check] <- "nominal"
-        
+
         check <- unlist(lapply(tmp, is.ordered))
         if(any(check)) varType[check] <- "ordinal"
     } else {
         varType <- map$typeVec[varNames]
     }
-    
+
     if(.Platform$OS.type == "unix") nullFile <- "/dev/null"
     else                            nullFile <- "nul"
 
-    sink(nullFile)# Suppress output
+    withr::with_sink(nullFile)# Suppress output
 
     ## Check for pairwise available obvservations
     pairwiseCheck <- mean(
@@ -153,8 +153,8 @@ flexLinearAssoc <- function(varNames, map, checkMat = FALSE, autoType = FALSE)
         corVal <- NA
     }
 
-    sink()# Stop suppressing output
-    options(warn = 0)# Back to defaults
+    withr::with_sink()# Stop suppressing output
+    withr::with_options(warn = 0)# Back to defaults
 
     outList <- list(value = corVal)
     if(checkMat) {
@@ -218,12 +218,12 @@ simplePca <- function(map, lv, parse, scale = TRUE)
 
     ## Compute the cumulative proportions of variance explained:
     map$rSquared[[lv]] <- cumsum(eigenOut$values) / sum(eigenOut$values)
-    
+
     ## Set component counts when some are defined by variance explained:
     if(parse) map$setNComps(type = lv)
-    
+
     nc <- map$nComps[lv]
-    
+
     ## Compute and save the PcAux scores:
     if(is.null(map$idCols))
         map$pcAux[[lv]] <- data.frame(
@@ -411,12 +411,12 @@ warnFun <- function(type, map) {
                )
 
     ## Print the warning message
-    options(warn = 1) # Print warnings immediately
+    withr::with_options(warn = 1) # Print warnings immediately
     warning(
         paste0(c("\r", strwrap(warnMessage, width = 81)), collapse = "\n"),
         call. = FALSE
     )
-    options(warn = 0) # Back to normal
+    withr::with_options(warn = 0) # Back to normal
 }# END warnFun()
 
 
@@ -543,7 +543,7 @@ errFun <- function(type, ...) {
                                      " , but all of your variables are categorical. I cannot create polynomial transformations of categorical variables, please specify some continuous variables or set 'maxPolyPow = 1'."
                                      )
                )# CLOSE switch()
-    
+
     stop(
         paste0(c("\r", strwrap(errMessage, width = 81)), collapse = "\n"),
         call. = FALSE
@@ -553,52 +553,52 @@ errFun <- function(type, ...) {
 
 
 makePredMat <- function(map) {
-    options(warn = -1)
+    withr::with_options(warn = -1)
     ## Construct a predictor matrix for mice():
     predMat <-
         quickpred(map$data, mincor = map$minItemPredCor[1], exclude = map$idVars)
-    
+
     ## Make sure we have fewer predictors than rows:
     badPredFlag <- rowSums(predMat) > (nrow(map$data) - 1)
-    
+
     if(any(badPredFlag)) {# Some models have P > (N - 1)
         badVars    <- colnames(map$data)[badPredFlag]
-        
+
         ## Store names of potential predictors:
         candidates <- setdiff(unique(unlist(map$corPairs[ , 1 : 2])),
                               c(map$dropVars[ , 1], map$idVars))
-        
+
         for(v in badVars) {
             ## Exclude current target from potential predictors:
-            candidates2 <- setdiff(candidates, v)     
-            
+            candidates2 <- setdiff(candidates, v)
+
             ## Select only correlation pairs involving the current target:
             tmp <-
                 map$corPairs[map$corPairs$var1 == v | map$corPairs$var2 == v, ]
-            
+
             ## Select only the correlations involving candidate predictors:
             tmp <-
                 tmp[tmp$var1 %in% candidates | tmp$var2 %in% candidates, ]
-            
+
             if(v %in% candidates) { # 'v' is a raw variable
                 ## Name the correlations with the non-target variable's name:
                 filter      <- tmp[ , 1 : 2] != v
                 tmp2        <- tmp$coef
                 names(tmp2) <- tmp[ , 1 : 2][filter]
-                
+
                 ## Select the strongest N - 1 candidates to use as predictors:
                 predNames <- names(sort(tmp2))[1 : (nrow(map$data) - 1)]
-                
+
                 ## Modify the predictor matrix accordingly:
                 predMat[v,                                 ] <- 0
                 predMat[v, colnames(predMat) %in% predNames] <- 1
             } else { # 'v' is a polynomial or interaction
                 tmp <- strsplit(v, "\\.")[[1]]
-                
+
                 if(length(tmp) == 2) { # 'v' is an interaction
                     ## Impute interactions using the intersection of the
                     ## predictor sets of the constituent raw variables:
-                    predMat[v, ] <- predMat[tmp[1], ] * predMat[tmp[2], ]       
+                    predMat[v, ] <- predMat[tmp[1], ] * predMat[tmp[2], ]
                 } else { # 'v' is a polynomial
                     ## Use the same predictor pattern from the raw variable for
                     ## its polynomial version:
@@ -607,7 +607,7 @@ makePredMat <- function(map) {
             }
         }
     }
-    options(warn = 0)
+    withr::with_options(warn = 0)
     predMat
 }# END makePredMat()
 
