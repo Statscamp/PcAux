@@ -948,14 +948,15 @@ PcAuxData$
             colnames(interact) <<- intVars
 
             ## Remove dummy codes for empty cells:
-            levVec   <-  sapply(interact, countLevels)
+            levVec   <-  vapply(interact, countLevels, integer(1))
             interact <<- interact[ , levVec > 1]
             intVars  <<- colnames(interact)
 
             ## Cast dummy codes as factors:
             dumFlag <-
-                sapply(interact,
-                       function(x) all(unique(na.omit(x)) %in% c(0, 1))
+                vapply(interact,
+                       function(x) all(unique(na.omit(x)) %in% c(0, 1)),
+                       logical(1)
                        )
 
             if(sum(dumFlag) > 1)
@@ -1064,7 +1065,7 @@ PcAuxData$
                 withr::with_options(na.action = oldOpt$na.action)
 
                 ## Remove dummy codes for empty factor levels:
-                levVec                 <-  sapply(tmp, countLevels)
+                levVec                 <-  vapply(tmp, countLevels, integer(1))
                 dumNoms[[v]]           <<- data.frame(tmp[ , levVec > 1])
                 colnames(dumNoms[[v]]) <<- dumNames[levVec > 1]
             }
