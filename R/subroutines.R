@@ -30,7 +30,8 @@ checkInputs <- function() {
     ## Index this function's parent:
     ## (2 = prepData, 1 = createPcAux, 0 = miWithPcAux)
     if(is.null(env$pcAuxData)) parent <- 2
-    else                       parent <- sum(sapply(env$pcAuxData$call, is.null))
+    else                       parent <- sum(vapply(env$pcAuxData$call,
+                                                    is.null, logical(1)))
 
     if(env$verbose > 0) cat("\nChecking inputs' validity...\n")
 
@@ -239,7 +240,7 @@ cleanData <- function(map) {
 
     if(creatingPcAux) {
         ## Check for factor id columns
-        checkFactors <- sapply(map$idCols, is.factor)
+        checkFactors <- vapply(map$idCols, is.factor, logical(1))
         if(any(checkFactors))
             map$idCols[checkFactors] <- lapply(map$idCols[checkFactors], as.character)
         if(length(map$idVars) > 1) {
@@ -604,7 +605,7 @@ doPCA <- function(map) {
         if(!missCheck(map$nomVars)) map$castNomVars()
 
         ## Cast any remaining factors to numeric formats:
-        check <- sapply(map$data, is.factor)
+        check <- vapply(map$data, is.factor, logical(1))
         if(sum(check) > 1)
             map$data[ , check] <- data.frame(lapply(map$data[ , check], f2n))
         if(sum(check) == 1)

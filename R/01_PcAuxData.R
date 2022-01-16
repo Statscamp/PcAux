@@ -364,7 +364,7 @@ PcAuxData$
             else
                 session      <- rapply(lookFor, system, intern = TRUE)
 
-            stCall <- sum(sapply(call, function(x) is.null(x)))
+            stCall <- sum(vapply(call, function(x) is.null(x), logical(1)))
 
             if     (stCall == 2) status$prep[[step]]   <<- session
             else if(stCall == 1) status$create[[step]] <<- session
@@ -374,7 +374,7 @@ PcAuxData$
         setTime = function(step = "start")
         {
             "Set the elapsed time between processes"
-            stCall <- sum(sapply(call, function(x) is.null(x)))
+            stCall <- sum(vapply(call, function(x) is.null(x), logical(1)))
             if     (stCall == 2) time$prep[[step]] <<- proc.time()["elapsed"]
             else if(stCall == 1) time$create[step] <<- proc.time()["elapsed"]
             else if(stCall == 0) time$mi[step]     <<- proc.time()["elapsed"]
