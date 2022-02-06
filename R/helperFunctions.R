@@ -127,7 +127,7 @@ flexLinearAssoc <- function(varNames, map, checkMat = FALSE, autoType = FALSE)
   }
 
   #withr::with_sink()# Stop suppressing output
-  #withr::with_options(warn = 0)# Back to defaults
+  withr::local_options(list(warn = 0))# Back to defaults
 
   outList <- list(value = corVal)
   if(checkMat) {
@@ -380,12 +380,12 @@ warnFun <- function(type, map) {
     )
 
   ## Print the warning message
-  withr::with_options(warn = 1) # Print warnings immediately
+  withr::local_options(list(warn = 1)) # Print warnings immediately
   warning(
     paste0(c("\r", strwrap(warnMessage, width = 81)), collapse = "\n"),
     call. = FALSE
   )
-  withr::with_options(warn = 0) # Back to normal
+  withr::local_options(list(warn = 0)) # Back to normal
 }# END warnFun()
 
 
@@ -522,7 +522,7 @@ errFun <- function(type, ...) {
 
 
 makePredMat <- function(map) {
-  withr::with_options(warn = -1)
+  withr::local_options(list(warn = -1))
   ## Construct a predictor matrix for mice():
   predMat <-
     mice::quickpred(map$data, mincor = map$minItemPredCor[1],
@@ -577,7 +577,7 @@ makePredMat <- function(map) {
       }
     }
   }
-  withr::with_options(warn = 0)
+  withr::local_options(list(warn = 0))
   predMat
 }# END makePredMat()
 

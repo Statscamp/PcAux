@@ -1051,7 +1051,7 @@ PcAuxData$methods(
                               )))
 
     ## Make sure missing values are retained in dummy codes:
-    oldOpt <- withr::with_options(na.action = "na.pass")
+    oldOpt <- withr::local_options(list(na.action = "na.pass"))
 
     ## Create the polynominal terms:
     if (length(dataNames) == 1)
@@ -1063,7 +1063,7 @@ PcAuxData$methods(
       poly <<- data.frame(model.matrix(form, data = data[, dataNames]))[,-1]
 
     ## Reset the na.action option:
-    withr::with_options(na.action = oldOpt$na.action)
+    withr::local_options(list(na.action = oldOpt$na.action))
 
     ## Revert ordinal variable casting:
     if (length(ordVars) > 0)
@@ -1099,14 +1099,14 @@ PcAuxData$methods(
       ## Expand factors into dummy codes:
 
       ## Make sure missing values are retained in dummy codes:
-      oldOpt <- withr::with_options(na.action = "na.pass")
+      oldOpt <- withr::local_options(list(na.action = "na.pass"))
 
       ## Create/store dummy codes:
       tmp <- data.frame(model.matrix(as.formula(paste0("~", v)), data = data))
       dumNames <- colnames(tmp)
 
       ## Reset the na.action option:
-      withr::with_options(na.action = oldOpt$na.action)
+      withr::local_options(list(na.action = oldOpt$na.action))
 
       ## Remove dummy codes for empty factor levels:
       levVec                 <-
