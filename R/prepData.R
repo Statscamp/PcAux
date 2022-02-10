@@ -4,15 +4,15 @@
 #'
 #' This is the first step in generating auxillary variables.
 #'
-#' @param rawData data frame
+#' @param rawData A data frame or matrix containing raw data
 #' @param moderators moderators
 #' @param nomVars A list of column names which contain nominal values
-#' @param ordVars ordVars A list of column names which contain ordinal values
-#' @param idVars idVars A list of column names which contain unique row
+#' @param ordVars A list of column names which contain ordinal values
+#' @param idVars A list of column names which contain unique row
 #' identifiers
-#' @param dropVars dropVars A list of column names to exclude from the
+#' @param dropVars A list of column names to exclude from the
 #' imputation
-#' @param groupVars groupVars A list of column names which contains group
+#' @param groupVars A list of column names which contains group
 #' @param simMode simMode
 #' @param nProcess nProcess
 #' @param verbose verbose
