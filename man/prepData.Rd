@@ -2,7 +2,7 @@
 % Please edit documentation in R/prepData.R
 \name{prepData}
 \alias{prepData}
-\title{Prepare data frame and convert to PcAuxData object}
+\title{Prepare a data frame for conversion into a PcAuxData object}
 \usage{
 prepData(
   rawData,
@@ -24,15 +24,17 @@ prepData(
 
 \item{moderators}{moderators}
 
-\item{nomVars}{nomVars}
+\item{nomVars}{A list of column names which contain nominal values}
 
-\item{ordVars}{ordVars}
+\item{ordVars}{ordVars A list of column names which contain ordinal values}
 
-\item{idVars}{idVars}
+\item{idVars}{idVars A list of column names which contain unique row
+identifiers}
 
-\item{dropVars}{dropVars}
+\item{dropVars}{dropVars A list of column names to exclude from the
+imputation}
 
-\item{groupVars}{groupVars}
+\item{groupVars}{groupVars A list of column names which contains group}
 
 \item{simMode}{simMode}
 
@@ -44,8 +46,11 @@ prepData(
 
 \item{...}{other}
 }
+\value{
+An S4 class of type pcAuxData as defined in 01_PcAuxData.R
+}
 \description{
-\code{prepData} checks the input data from and returns a PcAuxData object.
+\code{prepData} checks the input data and returns a PcAuxData object.
 }
 \details{
 This is the first step in generating auxillary variables.

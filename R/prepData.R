@@ -1,21 +1,24 @@
-#' Prepare data frame and convert to PcAuxData object
+#' Prepare a data frame for conversion into a PcAuxData object
 #'
-#' `prepData` checks the input data from and returns a PcAuxData object.
+#' `prepData` checks the input data and returns a PcAuxData object.
 #'
 #' This is the first step in generating auxillary variables.
 #'
 #' @param rawData data frame
 #' @param moderators moderators
-#' @param nomVars nomVars
-#' @param ordVars ordVars
-#' @param idVars idVars
-#' @param dropVars dropVars
-#' @param groupVars groupVars
+#' @param nomVars A list of column names which contain nominal values
+#' @param ordVars ordVars A list of column names which contain ordinal values
+#' @param idVars idVars A list of column names which contain unique row
+#' identifiers
+#' @param dropVars dropVars A list of column names to exclude from the
+#' imputation
+#' @param groupVars groupVars A list of column names which contains group
 #' @param simMode simMode
 #' @param nProcess nProcess
 #' @param verbose verbose
 #' @param control control
 #' @param ... other
+#' @return An S4 class of type pcAuxData as defined in 01_PcAuxData.R
 #' @export prepData
 prepData <- function(rawData,
                      moderators = NULL,
