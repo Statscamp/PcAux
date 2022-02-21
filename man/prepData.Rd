@@ -20,21 +20,21 @@ prepData(
 )
 }
 \arguments{
-\item{rawData}{data frame}
+\item{rawData}{A data frame or matrix containing raw data}
 
 \item{moderators}{moderators}
 
 \item{nomVars}{A list of column names which contain nominal values}
 
-\item{ordVars}{ordVars A list of column names which contain ordinal values}
+\item{ordVars}{A list of column names which contain ordinal values}
 
-\item{idVars}{idVars A list of column names which contain unique row
+\item{idVars}{A list of column names which contain unique row
 identifiers}
 
-\item{dropVars}{dropVars A list of column names to exclude from the
+\item{dropVars}{A list of column names to exclude from the
 imputation}
 
-\item{groupVars}{groupVars A list of column names which contains group}
+\item{groupVars}{A list of column names which contains group}
 
 \item{simMode}{simMode}
 
