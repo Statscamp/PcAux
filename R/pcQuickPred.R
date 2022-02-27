@@ -97,4 +97,4 @@ pcQuickPred <- function(data,
   } # next iName
 
   return(pcPredictorMatrix)
-} # end pcQuickPred
+}
