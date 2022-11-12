@@ -70,7 +70,7 @@ miWithPcAux <- function(rawData,
   if (length(dropVars) == 1 && dropVars == "useExtant") {
     tmp <-
       pcAuxData$dropVars[pcAuxData$dropVars[, 2] == "user_defined",]
-    if (class(tmp) != "matrix")
+    if(!is.matrix(tmp)) tmp <- matrix(tmp, 1, 2)
       tmp <- matrix(tmp, 1, 2)
     pcAuxData$dropVars <- tmp
   } else if (!missCheck(dropVars)) {

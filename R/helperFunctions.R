@@ -164,7 +164,9 @@ missCheck <- function(x) {
   if(missing(x)) return(TRUE)
   if(!is.object(x)) {
     if(length(x) == 0) return(TRUE)
-    if(length(x) == 1 & is.null(x) || is.na(x) || x == "") return(TRUE)
+    if(length(x) == 1 & is.null(x)) return(TRUE)
+    if(any(is.na(x))) return(TRUE)
+    if(any(x == "")) return(TRUE)
   }
   FALSE
 }
