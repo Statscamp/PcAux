@@ -25,8 +25,6 @@ pak::pkg_install("Statscamp/PcAux")
 devtools::install_github("Statscamp/PcAux")
 ```
 
-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
-
 ## Example
 A basic missing data treatment using **PcAux** might look like the following:
 
