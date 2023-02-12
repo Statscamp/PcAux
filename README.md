@@ -15,7 +15,7 @@ useful!
 
 ## Installation
 
-The latest version can be installed from GitHub using any of the following
+The `PcAux` package can be installed from GitHub using any of the following
 methods:
 
 [pak](https://pak.r-lib.org/index.html)
