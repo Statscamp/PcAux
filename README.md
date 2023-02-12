@@ -1,5 +1,4 @@
 # PcAux
----
 This is the repository for the PcAux package which was formerly called "quark."
 
 - Licensing information is given in the [LICENSE] file.
@@ -15,30 +14,18 @@ in the issues section.
 Thank you for your interest in the PcAux project! I hope you find our software
 useful!
 
-## Installation
-The best way to install PcAux is to use the `devtools::install_github` function.
+# Installation
+## pak
+```
+pak::pkg_install("Statscamp/PcAux")
+```
 
-1. First, make sure that you have **devtools** installed on your system
-2. Next, execute the following lines:
+## devtools
+```
+devtools::install_github("Statscamp/PcAux")
+```
 
-        library(devtools)
-        install_github("PcAux-Package/PcAux/source/PcAux")
-    
-3. Finally, load **PcAux** and enjoy:
-
-        library(PcAux)
-
-If the **devtools**-based approach does not work, you can download one of the
-built tar-balls from the [builds][] directory and manually install the package
-from source by executing the following lines:
-
-        install.packages("/SAVE_PATH/PcAux_VERSION.tar.gz",
-                         repos = NULL,
-                         type  = "source")
-
-Where *SAVE_PATH* is replaced by the (relative or absolute) file path to the
-location where you saved the tar-ball, and *VERSION* is replaced with the correct
-version number for the tar-ball that you downloaded.
+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
 
 ## Example
 A basic missing data treatment using **PcAux** might look like the following:
