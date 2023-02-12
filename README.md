@@ -1,7 +1,7 @@
 # PcAux
 This is the repository for the PcAux package which was formerly called "quark."
 
-- Licensing information is given in the [LICENSE] file.
+- Licensing information is given in the [LICENSE](LICENSE.md) file.
 - Built tarballs of the PcAux package are available in the [builds][] directory.
 - Stand-alone documentation is available in the [documentation][docs] directory.
 - The source files for the most recent stable version of PcAux are available in
