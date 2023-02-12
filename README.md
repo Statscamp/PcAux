@@ -8,7 +8,7 @@ PcAux assists in automatically extracting auxiliary features for simple,
 principled missing data imputation.
 
 PcAux is beta software. Please report any [issues](https://github.com/Statscamp/PcAux/issues) that you encounter. 
-You may also suggest new features in the issues section.
+You may also suggest new features.
 
 Thank you for your interest in PcAux! We hope you find our software
 useful!
@@ -27,6 +27,10 @@ pak::pkg_install("Statscamp/PcAux")
 ```
 devtools::install_github("Statscamp/PcAux")
 ```
+
+## Documentation
+You can find detailed documentation [here](docs). We will eventually move this into
+the project.
 
 ## Example
 A basic missing data treatment using **PcAux** might look like the following:
