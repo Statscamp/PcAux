@@ -36,7 +36,8 @@ Authors@R: c(
       email = "daniel.bontempo@ttu.edu")
   )
 
-Description: Automatically extract auxiliary features for simple, principled missing data analysis.
+Description: Automatically extract auxiliary features for simple, principled 
+missing data analysis.
 License: GPL (>= 3)
 Encoding: UTF-8
 LazyData: true
