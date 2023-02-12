@@ -1,26 +1,29 @@
 # PcAux
+
+## Principle Component Auxiliary Variables
+
 This is the repository for the PcAux package which was formerly called "quark."
 
-- Licensing information is given in the [LICENSE](LICENSE.md) file.
-- Built tarballs of the PcAux package are available in the [builds][] directory.
-- Stand-alone documentation is available in the [documentation][docs] directory.
-- The source files for the most recent stable version of PcAux are available in
-  the [source][src] directory.
+PcAux assists in automatically extracting auxiliary features for simple,
+principled missing data imputation.
 
-PcAux is beta software, so please report any bugs that you encounter in the
-issues section of the project page. You may also leave requests for new features
-in the issues section.
+PcAux is beta software. Please report any [issues](https://github.com/Statscamp/PcAux/issues) that you encounter. 
+You may also suggest new features in the issues section.
 
-Thank you for your interest in the PcAux project! I hope you find our software
+Thank you for your interest in PcAux! We hope you find our software
 useful!
 
-# Installation
-## pak
+## Installation
+
+The latest version can be installed from GitHub using any of the following
+methods:
+
+[pak](https://pak.r-lib.org/index.html)
 ```
 pak::pkg_install("Statscamp/PcAux")
 ```
 
-## devtools
+[devtools](https://devtools.r-lib.org/index.html)
 ```
 devtools::install_github("Statscamp/PcAux")
 ```
