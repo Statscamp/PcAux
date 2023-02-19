@@ -49,30 +49,29 @@ library(PcAux)
 ```
 data(sample1)
 
-# Examine the data. Note: `summary` shows the number of missing values per
-# column
+## Examine the data
 head(sample1)
 summary(sample1)
 
-# Create variables to pass as function parameters
-# list of nominal variables
+## Create variables to pass as function parameters
+# List of nominal variables included in imputation
 myNoms   <- c("male","incident")
 
-# list of ordinal variables
+# List of ordinal variables included in imputation
 myOrds   <- c("grade")
 
-# Row id variable is excluded from imputation
+# Exclude row id variables from the imputation
 myIds    <- c("ID")
 
-# Variables dropped from imputation
+# List of other variables to exclude from imputation
 myTrash  <- c("Qual")
 
-# Moderators you plan on using in your analysis model here
+# List of moderators you plan on using in your analysis model
 myMods   <- c("grade","incident")
 ```
 
 
-        
+        data(iris2)
         cleanData <- prepData(rawData   = iris2,
                               nomVars   = "Species",
                               ordVars   = "Petal.Width",
