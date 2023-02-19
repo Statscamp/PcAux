@@ -15,7 +15,7 @@ useful!
 
 ## Installation
 
-The `PcAux` package can be installed from GitHub using any of the following
+The `PcAux` package can be installed from GitHub using one of the following
 methods:
 
 [pak](https://pak.r-lib.org/index.html)
@@ -28,16 +28,51 @@ pak::pkg_install("Statscamp/PcAux")
 devtools::install_github("Statscamp/PcAux")
 ```
 
+[remotes](https://remotes.r-lib.org/)
+```
+remotes::install_github("Statscamp/PcAux")
+```
+
 ## Documentation
-You can find detailed documentation [here](docs). We will eventually move this into
-the project.
+You can find detailed documentation [here](docs). We are working diligently to 
+move the documentation directly into the project.
 
 ## Example
-A basic missing data treatment using **PcAux** might look like the following:
+A basic missing data treatment using `PcAux` might look like the following:
 
-1. First, load and prepare your data:
+1. Load the `PcAux` Library
+```
+library(PcAux)
+```
 
-        data(iris2)
+2. Load and prepare your data:
+```
+data(sample1)
+
+# Examine the data. Note: `summary` shows the number of missing values per
+# column
+head(sample1)
+summary(sample1)
+
+# Create variables to pass as function parameters
+# list of nominal variables
+myNoms   <- c("male","incident")
+
+# list of ordinal variables
+myOrds   <- c("grade")
+
+# Row id variable is excluded from imputation
+myIds    <- c("ID")
+
+# Variables dropped from imputation
+myTrash  <- c("Qual")
+
+# Moderators you plan on using in your analysis model here
+myMods   <- c("grade","incident")
+```
+
+
+        
         cleanData <- prepData(rawData   = iris2,
                               nomVars   = "Species",
                               ordVars   = "Petal.Width",
