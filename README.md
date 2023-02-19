@@ -64,20 +64,24 @@ myOrds   <- c("grade")
 myIds    <- c("ID")
 
 # List of other variables to exclude from imputation
-myTrash  <- c("Qual")
+myDrops  <- c("Qual")
 
 # List of moderators you plan on using in your analysis model
 myMods   <- c("grade","incident")
 ```
 
-
-        data(iris2)
-        cleanData <- prepData(rawData   = iris2,
-                              nomVars   = "Species",
-                              ordVars   = "Petal.Width",
-                              idVars    = "ID",
-                              dropVars  = "Junk",
-                              groupVars = "Species")
+3. Create the PcAux object by passing the raw data and function parameters
+```
+pcaux_obj <-
+  prepData(
+    rawData    = sample1,
+    moderators = myMods,
+    nomVars    = myNoms,
+    ordVars    = myOrds,
+    idVars     = myIds,
+    dropVars   = myDrops
+  )
+```
 
 2. Next, create a set of principal component auxiliary variables:
 
