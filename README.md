@@ -35,7 +35,7 @@ remotes::install_github("Statscamp/PcAux")
 
 ## Documentation
 You can find detailed documentation [here](docs). We are working diligently to 
-move the documentation directly into the project.
+move the documentation directly into the package.
 
 ## Example
 A basic missing data treatment using `PcAux` might look like the following:
@@ -83,12 +83,19 @@ pcaux_obj <-
   )
 ```
 
-2. Next, create a set of principal component auxiliary variables:
+4. Create a set of principal component auxiliary variables
+```
+cpa <- createPcAux(
+  pcAuxData = pcAuxDat,
+  nComps = c(Inf, Inf) ,
+  interactType = 2,
+  # Refer to the PcAux manual regarding interaction types that would best fit your analysis
+  maxPolyPow = 1,
+  control = list(minItemPredCor = .3)
+)
+```
 
-        pcAuxOut <- createPcAux(pcAuxData = cleanData,
-                                nComps    = c(3, 2))
-
-3. Finally, use the principal component auxiliaries as the predictors in a
+5. Finally, use the principal component auxiliaries as the predictors in a
    multiple imputation run:
 
         miOut <- miWithPcAux(rawData   = iris2,
