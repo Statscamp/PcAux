@@ -15,7 +15,7 @@ useful!
 
 ## Installation
 
-The `PcAux` package can be installed from GitHub using any of the following
+The `PcAux` package can be installed from GitHub using one of the following
 methods:
 
 [pak](https://pak.r-lib.org/index.html)
@@ -28,14 +28,40 @@ pak::pkg_install("Statscamp/PcAux")
 devtools::install_github("Statscamp/PcAux")
 ```
 
+[remotes](https://remotes.r-lib.org/)
+```
+remotes::install_github("Statscamp/PcAux")
+```
+
 ## Documentation
-You can find detailed documentation [here](docs). We will eventually move this into
-the project.
+You can find detailed documentation [here](docs). We are working diligently to 
+move the documentation directly into the project.
 
 ## Example
-A basic missing data treatment using **PcAux** might look like the following:
+A basic missing data treatment using `PcAux` might look like the following:
 
-1. First, load and prepare your data:
+1. Load the `PcAux` Library
+```
+library(PcAux)
+```
+
+2. Load and prepare your data:
+```
+data(sample1)
+
+## Examine the data
+head(sample1)
+summary(sample1)
+
+## Create variables to pass as function parameters
+myNoms   <- c("male","incident")   # list all of your nominal variables here
+myOrds   <- c("grade")   # list all of your ordinal variables here
+myIds    <- c("ID")   # list your id variable here
+myTrash  <- c("Qual")   # list your variables that you are dropping from imputation here
+myMods   <- c("grade","incident")   # list any moderators you plan on using in your analysis model here
+
+```
+
 
         data(iris2)
         cleanData <- prepData(rawData   = iris2,
