@@ -49,11 +49,11 @@ library(PcAux)
 ```
 data(sample1)
 
-## Examine the data
+# Examine the sample data
 head(sample1)
 summary(sample1)
 
-## Create variables to pass as function parameters
+# Create variables to pass as function parameters
 # List of nominal variables included in imputation
 myNoms   <- c("male","incident")
 
