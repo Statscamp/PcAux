@@ -70,9 +70,10 @@ myDrops  <- c("Qual")
 myMods   <- c("grade","incident")
 ```
 
-3. Create the PcAux object by passing the raw data and function parameters
+3. Create the PcAux object by passing the raw data and function parameters to
+`prepData`
 ```
-pcaux_obj <-
+pcaux_obj1 <-
   prepData(
     rawData    = sample1,
     moderators = myMods,
@@ -85,11 +86,10 @@ pcaux_obj <-
 
 4. Create a set of principal component auxiliary variables
 ```
-cpa <- createPcAux(
-  pcAuxData = pcAuxDat,
-  nComps = c(Inf, Inf) ,
+pcaux_obj2 <- createPcAux(
+  pcAuxData = pcaux_obj1,
+  nComps = c(Inf, Inf),
   interactType = 2,
-  # Refer to the PcAux manual regarding interaction types that would best fit your analysis
   maxPolyPow = 1,
   control = list(minItemPredCor = .3)
 )
@@ -97,10 +97,14 @@ cpa <- createPcAux(
 
 5. Finally, use the principal component auxiliaries as the predictors in a
    multiple imputation run:
-
-        miOut <- miWithPcAux(rawData   = iris2,
-                             pcAuxData = pcAuxOut,
-                             nImps     = 5)
+```
+midat <- miWithPcAux(
+  rawData = sample1,
+  pcAuxData = pcaux_obj2,
+  nComps = c(.6, .5),
+  nImps = 100
+)
+```
 
 You can also work directly with the principal component auxiliaries:
 
