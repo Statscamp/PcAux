@@ -98,12 +98,13 @@ pcaux_obj2 <- createPcAux(
 5. Finally, use the principal component auxiliaries as the predictors in a
    multiple imputation run:
 ```
-midat <- miWithPcAux(
-  rawData = sample1,
-  pcAuxData = pcaux_obj2,
-  nComps = c(.6, .5),
-  nImps = 100
-)
+pcaux_obj3 <-
+  miWithPcAux(
+    rawData = sample1,
+    pcAuxData = pcaux_obj2,
+    nComps = c(.6, .5),
+    nImps = 10
+  )
 ```
 
 You can also work directly with the principal component auxiliaries:
