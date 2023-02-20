@@ -39,3 +39,11 @@ importFrom("rlecuyer",
 importFrom("utils",
            "capture.output",
            "sessionInfo")
+importFrom("ICC",
+           "ICCbare")
+importFrom("coop",
+           "pcor")
+importFrom("purrr",
+           "map")
+importFrom("vcd",
+           "assocstats")
