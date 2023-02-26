@@ -198,33 +198,7 @@ miWithPcAux <- function(rawData,
         } else {
             errFun("miceCrash", map = pcAuxData)
         }
-
-    } else {# Impute in parallel
-        myCluster <- makeCluster(nProcess)
-        clusterEvalQ(myCluster, library(mice))
-
-        pcAuxData$miDatasets <- parLapply(myCluster,
-                                          X       = c(1 : nImps),
-                                          fun     = parallelMice,
-                                          map     = pcAuxData,
-                                          tempDirName = tempdir())
-
-        stopCluster(myCluster)
-
-        pcAuxData$setTime("impParallel")
-        if(pcAuxData$checkStatus == "all") pcAuxData$setStatus("impParallel")
-
-        # assemble list of returned datasets into single miDataset object
-        pcAuxData$transformMiData()
-
-        # retrieve mids object for 1st parallel process and put in PcAuxObject
-        pcAuxData$miceObject <- readRDS(file = file.path(tempdir(),"firstMids.RDS"))
-
-        pcAuxData$setTime("transformMI")
-        if(pcAuxData$checkStatus == "all") pcAuxData$setStatus("transformMI")
-
     }
-
     if(verbose > 1) cat("\n--done.\n")
     if(verbose > 1) cat("Complete.\n")
 
