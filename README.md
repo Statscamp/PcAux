@@ -107,20 +107,7 @@ pcaux_obj3 <-
   )
 ```
 
-You can also work directly with the principal component auxiliaries:
-
-- You can merge the principal component auxiliaries back onto your raw data (e.g.,
-  for use with the Graham, 2003, saturated correlates approach).
-
-        outData <- mergePcAux(pcAuxData = pcAuxOut, rawData = iris2)
-
-- You can also create a stand-alone predictor matrix that can be used to
-  correctly incorporate the principal component auxiliaries into a separate
-  MI run using the **mice** package.
-
-        predMat <- makePredMatrix(mergedData = outData)
-
-[builds]:  https://github.com/PcAux-Package/PcAux/tree/master/builds/
-[docs]:    https://github.com/PcAux-Package/PcAux/tree/master/documentation/
-[src]:     https://github.com/PcAux-Package/PcAux/tree/master/source/PcAux
-[LICENSE]: https://github.com/PcAux-Package/PcAux/blob/master/LICENSE
+You can work directly with the principal component auxiliaries by merging them directly back into the raw data:
+```
+outData <- mergePcAux(pcAuxData = pcaux_obj3, rawData = sample1)
+```
