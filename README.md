@@ -1,84 +1,113 @@
 # PcAux
----
+
+## Principle Component Auxiliary Variables
+
 This is the repository for the PcAux package which was formerly called "quark."
 
-- Licensing information is given in the [LICENSE] file.
-- Built tarballs of the PcAux package are available in the [builds][] directory.
-- Stand-alone documentation is available in the [documentation][docs] directory.
-- The source files for the most recent stable version of PcAux are available in
-  the [source][src] directory.
+PcAux assists in automatically extracting auxiliary features for simple,
+principled missing data imputation.
 
-PcAux is beta software, so please report any bugs that you encounter in the
-issues section of the project page. You may also leave requests for new features
-in the issues section.
+PcAux is beta software. Please report any [issues](https://github.com/Statscamp/PcAux/issues) that you encounter. 
+You may also suggest new features.
 
-Thank you for your interest in the PcAux project! I hope you find our software
+Thank you for your interest in PcAux! We hope you find our software
 useful!
 
 ## Installation
-The best way to install PcAux is to use the `devtools::install_github` function.
 
-1. First, make sure that you have **devtools** installed on your system
-2. Next, execute the following lines:
+The `PcAux` package can be installed from GitHub using one of the following
+methods:
 
-        library(devtools)
-        install_github("PcAux-Package/PcAux/source/PcAux")
-    
-3. Finally, load **PcAux** and enjoy:
+[pak](https://pak.r-lib.org/index.html)
+```
+pak::pkg_install("Statscamp/PcAux")
+```
 
-        library(PcAux)
+[devtools](https://devtools.r-lib.org/index.html)
+```
+devtools::install_github("Statscamp/PcAux")
+```
 
-If the **devtools**-based approach does not work, you can download one of the
-built tar-balls from the [builds][] directory and manually install the package
-from source by executing the following lines:
+[remotes](https://remotes.r-lib.org/)
+```
+remotes::install_github("Statscamp/PcAux")
+```
 
-        install.packages("/SAVE_PATH/PcAux_VERSION.tar.gz",
-                         repos = NULL,
-                         type  = "source")
-
-Where *SAVE_PATH* is replaced by the (relative or absolute) file path to the
-location where you saved the tar-ball, and *VERSION* is replaced with the correct
-version number for the tar-ball that you downloaded.
+## Documentation
+You can find detailed documentation [here](docs). We are working diligently to 
+move the documentation directly into the package.
 
 ## Example
-A basic missing data treatment using **PcAux** might look like the following:
+A basic missing data treatment using `PcAux` might look like the following:
 
-1. First, load and prepare your data:
+1. Load the `PcAux` Library
+```
+library(PcAux)
+```
 
-        data(iris2)
-        cleanData <- prepData(rawData   = iris2,
-                              nomVars   = "Species",
-                              ordVars   = "Petal.Width",
-                              idVars    = "ID",
-                              dropVars  = "Junk",
-                              groupVars = "Species")
+2. Load and prepare your data:
+```
+data(sample1)
 
-2. Next, create a set of principal component auxiliary variables:
+# Examine the sample data
+head(sample1)
+summary(sample1)
 
-        pcAuxOut <- createPcAux(pcAuxData = cleanData,
-                                nComps    = c(3, 2))
+# Create variables to pass as function parameters
+# List of nominal variables included in imputation
+myNoms   <- c("male","incident")
 
-3. Finally, use the principal component auxiliaries as the predictors in a
+# List of ordinal variables included in imputation
+myOrds   <- c("grade")
+
+# Exclude row id variables from the imputation
+myIds    <- c("ID")
+
+# List of other variables to exclude from imputation
+myDrops  <- c("Qual")
+
+# List of moderators you plan on using in your analysis model
+myMods   <- c("grade","incident")
+```
+
+3. Create the PcAux object by passing the raw data and function parameters to
+`prepData`
+```
+pcaux_obj1 <-
+  prepData(
+    rawData    = sample1,
+    moderators = myMods,
+    nomVars    = myNoms,
+    ordVars    = myOrds,
+    idVars     = myIds,
+    dropVars   = myDrops
+  )
+```
+
+4. Create a set of principal component auxiliary variables
+```
+pcaux_obj2 <- createPcAux(
+  pcAuxData = pcaux_obj1,
+  nComps = c(Inf, Inf),
+  interactType = 2,
+  maxPolyPow = 1,
+  control = list(minItemPredCor = .3)
+)
+```
+
+5. Finally, use the principal component auxiliaries as the predictors in a
    multiple imputation run:
+```
+pcaux_obj3 <-
+  miWithPcAux(
+    rawData = sample1,
+    pcAuxData = pcaux_obj2,
+    nComps = c(.6, .5),
+    nImps = 10
+  )
+```
 
-        miOut <- miWithPcAux(rawData   = iris2,
-                             pcAuxData = pcAuxOut,
-                             nImps     = 5)
-
-You can also work directly with the principal component auxiliaries:
-
-- You can merge the principal component auxiliaries back onto your raw data (e.g.,
-  for use with the Graham, 2003, saturated correlates approach).
-
-        outData <- mergePcAux(pcAuxData = pcAuxOut, rawData = iris2)
-
-- You can also create a stand-alone predictor matrix that can be used to
-  correctly incorporate the principal component auxiliaries into a separate
-  MI run using the **mice** package.
-
-        predMat <- makePredMatrix(mergedData = outData)
-
-[builds]:  https://github.com/PcAux-Package/PcAux/tree/master/builds/
-[docs]:    https://github.com/PcAux-Package/PcAux/tree/master/documentation/
-[src]:     https://github.com/PcAux-Package/PcAux/tree/master/source/PcAux
-[LICENSE]: https://github.com/PcAux-Package/PcAux/blob/master/LICENSE
+You can work directly with the principal component auxiliaries by merging them directly back into the raw data:
+```
+outData <- mergePcAux(pcAuxData = pcaux_obj3, rawData = sample1)
+```
