@@ -27,7 +27,7 @@
 ## Print the (lack of) warranty information:
 pcAuxW <- function() {
     lic <- readLines(system.file("LICENSE", package = "PcAux"))
-    
+
     start <- grep("15. Disclaimer of Warranty", lic)
     end   <- grep("END OF TERMS AND CONDITIONS", lic) - 1
 
@@ -316,13 +316,6 @@ calcTime <- function(pcAuxData, what) {
     else timeSteps <- eachStep
 
     timeSteps
-}
-
-
-## Write machine status to a text files
-writeStatus <- function(pcAuxData, outName, what) {
-    capture.output(pcAuxData$status[[what]], file = outName)
-    paste("Wrote status to", outName)
 }
 
 
