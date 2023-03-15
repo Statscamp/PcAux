@@ -1,6 +1,6 @@
 # PcAux
 
-## Principle Component Auxiliary Variables
+## Principal Component Auxiliary Variables
 
 This is the repository for the PcAux package which was formerly called "quark."
 
