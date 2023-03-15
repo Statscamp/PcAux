@@ -34,7 +34,7 @@ remotes::install_github("Statscamp/PcAux")
 ```
 
 ## Documentation
-You can find detailed documentation [here](docs). We are working diligently to 
+You can find detailed documentation [here](inst/docs). We are working diligently to 
 move the documentation directly into the package.
 
 ## Example
