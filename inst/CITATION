@@ -3,14 +3,13 @@ citHeader("To cite PcAux in publications use:")
 citEntry(
   entry    = "Article",
   title    = "Using Principal Components as Auxiliary Variables in Missing Data Estimation",
-  author   = {Waylon J. Howard and Mijke Rhemtulla and Todd D. Little},
-  journal  = {Multivariate Behavioral Research},
-  year     = {2015},
-  volume   = {50},
-  number   = {3},
-  pages    = {285-299},
-  url      = {https://doi.org/10.1080/00273171.2014.999267},
-  doi      = {10.1080/00273171.2014.999267},
+  author   = "Waylon J. Howard, Mijke Rhemtulla, Todd D. Little",
+  journal  = "Multivariate Behavioral Research",
+  year     = "2015",
+  volume   = "50",
+  number   = "3",
+  pages    = "285-299",
+  url      = "https://www.tandfonline.com/doi/full/10.1080/00273171.2014.999267",
   textVersion = paste(
 
   )
