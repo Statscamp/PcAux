@@ -186,6 +186,8 @@ miWithPcAux <- function(rawData,
         pcAuxData$setTime("impSerial")
         if(pcAuxData$checkStatus == "all") pcAuxData$setStatus("impSerial")
 
+        # We are making the assumption that if mice crashes a mids object won't
+        # be created.
         #if(class(pcAuxData$miceObject) != "try-error") {
         if(isa(pcAuxData$miceObject, "mids")) {
             pcAuxData$data <- "Removed to save resources."
