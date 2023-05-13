@@ -206,7 +206,7 @@ mergePcAux <- function(pcAuxData, rawData, nComps = NULL, verbose = TRUE, ...)
 ## New Predictor Matrix Method to ensure no PCs below a certain threshhold are used
 ## Also protects against nPredictors > nObservations iteratively
 pcQuickPred <- function(data,
-                        mincor = minPcCor,
+                        mincor = .1,
                         minPredCount = 1,
                         nLinear = NULL,
                         nNonLinear = NULL ) {
