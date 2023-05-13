@@ -186,7 +186,8 @@ miWithPcAux <- function(rawData,
         pcAuxData$setTime("impSerial")
         if(pcAuxData$checkStatus == "all") pcAuxData$setStatus("impSerial")
 
-        if(class(pcAuxData$miceObject) != "try-error") {
+        #if(class(pcAuxData$miceObject) != "try-error") {
+        if(isa(pcAuxData$miceObject, "mids")) {
             pcAuxData$data <- "Removed to save resources."
 
             ## Complete the incomplete data sets:
