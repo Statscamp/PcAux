@@ -1,0 +1,33 @@
+#' @keywords internal
+"_PACKAGE"
+
+## usethis namespace: start
+#' @importFrom coop pcor
+#' @importFrom ICC ICCbare
+#' @importFrom methods new
+#' @importFrom mice complete
+#' @importFrom mice mice
+#' @importFrom mice quickpred
+#' @importFrom parallel clusterEvalQ
+#' @importFrom parallel makeCluster
+#' @importFrom parallel parApply
+#' @importFrom parallel parLapply
+#' @importFrom parallel stopCluster
+#' @importFrom purrr map
+#' @importFrom rlecuyer .lec.CreateStream
+#' @importFrom rlecuyer .lec.CurrentStream
+#' @importFrom rlecuyer .lec.GetStreams
+#' @importFrom rlecuyer .lec.SetPackageSeed
+#' @importFrom stats .lm.fit
+#' @importFrom stats cor
+#' @importFrom stats cov
+#' @importFrom stats na.omit
+#' @importFrom stats prcomp
+#' @importFrom stats runif
+#' @importFrom stats sd
+#' @importFrom utils capture.output
+#' @importFrom vcd assocstats
+#' @importFrom withr with_options
+#' @importFrom withr with_output_sink
+## usethis namespace: end
+NULL
