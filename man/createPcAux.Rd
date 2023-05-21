@@ -2,8 +2,9 @@
 % Please edit documentation in R/createPcAux.R
 \name{createPcAux}
 \alias{createPcAux}
-\title{Extract principal component scores for use as the auxiliary variables in a principled missing data
-analysis as described by Howard, Rhemtulla, and Little (2015).}
+\title{Extract principal component scores for use as the auxiliary variables in a
+principled missing data analysis as described by Howard, Rhemtulla, and
+Little (2015).}
 \usage{
 createPcAux(
   pcAuxData,
@@ -23,42 +24,45 @@ createPcAux(
 \arguments{
 \item{pcAuxData}{An object of class PcAuxData returned from prepData.}
 
-\item{nComps}{A two-element, numeric vector giving the number of linear and nonlinear, re-
-spectively, component scores to extract. See the Details section for more infor-
-mation.}
+\item{nComps}{A two-element, numeric vector giving the number of linear and
+nonlinear, re- spectively, component scores to extract. See the Details
+section for more infor- mation.}
 
-\item{interactType}{An integer code indicating which method is used to incorporate interactions into
-the initial, single imputation model. See the Details section for more informa-
-tion. Defaults to interactType = 1L.}
+\item{interactType}{An integer code indicating which method is used to
+incorporate interactions into the initial, single imputation model. See the
+Details section for more informa- tion. Defaults to interactType = 1L.}
 
-\item{maxPolyPow}{An integer giving the maximum power used when constructing the polynomial
-terms. Setting maxPolyPow = 1L has the effect of excluding any polynomial
-terms from the imputation model. Defaults to maxPolyPow = 3L.}
+\item{maxPolyPow}{An integer giving the maximum power used when constructing
+the polynomial terms. Setting maxPolyPow = 1L has the effect of excluding
+any polynomial terms from the imputation model. Defaults to maxPolyPow =
+3L.}
 
-\item{simMode}{A logical switch turning ’Simulation Mode’ on or off. In Simulation Mode all
-of the automatic data checks will be suppressed. This mode is intended for use
-when pcAux is being called as part of a Monte Carlo simulation study in which
-the data properties are well-known by the user. This mode should not be used
-for ’real-world’ data analysis. Defaults to simMode = FALSE.}
+\item{simMode}{A logical switch turning ’Simulation Mode’ on or off. In
+Simulation Mode all of the automatic data checks will be suppressed. This
+mode is intended for use when pcAux is being called as part of a Monte
+Carlo simulation study in which the data properties are well-known by the
+user. This mode should not be used for ’real-world’ data analysis. Defaults
+to simMode = FALSE.}
 
-\item{seed}{An optional integer used to seed the random number generator used by the im-
-putation algorithm. Defaults to seed = NULL which leaves the default random
-number generator unaltered.}
+\item{seed}{An optional integer used to seed the random number generator used
+by the im- putation algorithm. Defaults to seed = NULL which leaves the
+default random number generator unaltered.}
 
-\item{verbose}{An integer code in 0, 1, 2 deﬁning the verbosity of output printed to the screen.
-verbose = 0prints no output; verbose = 1prints all output except for the mes-
-sages returned by mice; verbose = 2 prints all output, including the messages
-returned by mice. Warnings are always printed, regardless of the value assigned
-to verbose. Defaults to verbose = 2.}
+\item{verbose}{An integer code in 0, 1, 2 deﬁning the verbosity of output
+printed to the screen. verbose = 0prints no output; verbose = 1prints all
+output except for the mes- sages returned by mice; verbose = 2 prints all
+output, including the messages returned by mice. Warnings are always
+printed, regardless of the value assigned to verbose. Defaults to verbose =
+2.}
 
-\item{doImputation}{A logical switch indicating whether the data should be imputed before extracting
-the principal component scores. Set to FALSE if the data element in pcAuxData
-has no missing values (e.g., the imputation was done elsewhere). Defaults to
-doImputation = TRUE.}
+\item{doImputation}{A logical switch indicating whether the data should be
+imputed before extracting the principal component scores. Set to FALSE if
+the data element in pcAuxData has no missing values (e.g., the imputation
+was done elsewhere). Defaults to doImputation = TRUE.}
 
-\item{castData}{A logical switch indicating whether the data element in pcAuxDatashould have
-its variables re-typed. Keep as FALSE unless the data have been manipulated
-after running prepData. Defaults to castData = FALSE.}
+\item{castData}{A logical switch indicating whether the data element in
+pcAuxDatashould have its variables re-typed. Keep as FALSE unless the data
+have been manipulated after running prepData. Defaults to castData = FALSE.}
 
 \item{control}{An optional list of control parameters (see ’Details’).}
 
@@ -67,10 +71,12 @@ after running prepData. Defaults to castData = FALSE.}
 \item{...}{Currently unused}
 }
 \value{
-An Reference Class object of class PcAuxData with ﬁelds for each of the createPcAux function’s
-arguments (except for the raw data which are removed to save resources).
+An Reference Class object of class PcAuxData with ﬁelds for each of
+the createPcAux function’s arguments (except for the raw data which are
+removed to save resources).
 }
 \description{
-Extract principal component scores for use as the auxiliary variables in a principled missing data
-analysis as described by Howard, Rhemtulla, and Little (2015).
+Extract principal component scores for use as the auxiliary variables in a
+principled missing data analysis as described by Howard, Rhemtulla, and
+Little (2015).
 }
