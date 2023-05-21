@@ -64,7 +64,7 @@ after running prepData. Defaults to castData = FALSE.}
 
 \item{micemethods}{A list of mice methods to use for imputation.}
 
-\item{...}{}
+\item{...}{Currently unused}
 }
 \value{
 An Reference Class object of class PcAuxData with ﬁelds for each of the createPcAux function’s

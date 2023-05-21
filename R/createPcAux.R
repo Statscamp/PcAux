@@ -33,7 +33,7 @@
 #' after running prepData. Defaults to castData = FALSE.
 #' @param control An optional list of control parameters (see ’Details’).
 #' @param micemethods A list of mice methods to use for imputation.
-#' @param ...
+#' @param ... Currently unused
 #'
 #' @return An Reference Class object of class PcAuxData with ﬁelds for each of the createPcAux function’s
 #' arguments (except for the raw data which are removed to save resources).
