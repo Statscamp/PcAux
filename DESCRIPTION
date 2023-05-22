@@ -13,11 +13,7 @@ Authors@R: c(
            comment = c(ORCID = "0000-0001-7423-9274")),
     person("Daniel", "Bontempo", , "daniel.bontempo@ttu.edu", role = "ctb")
   )
-Description: Automatically extract auxiliary features for simple,
-    principled missing data analysis.
-License: GPL (>= 3)
-URL: https://github.com/Statscamp/PcAux
-BugReports: https://github.com/Statscamp/PcAux/issues
+Maintainer: Danny Squire <danny.squire@ttu.edu>
 Depends: 
     R (>= 3.5.0)
 Imports: 
@@ -32,7 +28,13 @@ Imports:
     utils,
     vcd,
     withr
+Description: Automatically extract auxiliary features for simple,
+    principled missing data analysis.
 Encoding: UTF-8
+LazyLoad: true
 LazyData: true
+URL: https://github.com/Statscamp/PcAux
+BugReports: https://github.com/Statscamp/PcAux/issues
+License: GPL (>= 3)
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
