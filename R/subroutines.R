@@ -392,7 +392,8 @@ doSingleImputation <- function(map, micemethods = micemethods) {
             silent = TRUE)
         if(map$verbose > 0) cat("done.\n")
 
-        if(class(map$data) != "try-error") { # mice() didn't crash
+        # if(class(map$data) != "try-error") { # mice() didn't crash
+        if(isa(map$data, "data.frame")) {
             ## Record any logged events
             map$loggedEvents <- as.data.frame(map$data$loggedEvents)
             ## Save mids
@@ -719,7 +720,8 @@ parallelMice <- function(imp, map, tempDirName) {
              nnet.MaxNWts    = map$maxNetWts),
         silent = FALSE)
 
-    if(class(miceOut) != "try-error") {
+    # if(class(miceOut) != "try-error") {
+    if(isa(miceOut, "mids")) {
         impData <- complete(miceOut, 1)
         if (imp==1) saveRDS(object = miceOut, file = file.path(tempDirName,"firstMids.rds"))
     } else {

@@ -27,7 +27,7 @@
 ## Print the (lack of) warranty information:
 pcAuxW <- function() {
     lic <- readLines(system.file("LICENSE", package = "PcAux"))
-    
+
     start <- grep("15. Disclaimer of Warranty", lic)
     end   <- grep("END OF TERMS AND CONDITIONS", lic) - 1
 
@@ -206,11 +206,10 @@ mergePcAux <- function(pcAuxData, rawData, nComps = NULL, verbose = TRUE, ...)
 ## New Predictor Matrix Method to ensure no PCs below a certain threshhold are used
 ## Also protects against nPredictors > nObservations iteratively
 pcQuickPred <- function(data,
-                        mincor = minPcCor,
+                        mincor = .1,
                         minPredCount = 1,
                         nLinear = NULL,
                         nNonLinear = NULL ) {
-  library(coop)
 
   if(nNonLinear > 0)
     PCs    <- c(paste0("linPC", c(1 : nLinear)),
@@ -236,7 +235,7 @@ pcQuickPred <- function(data,
   suppressWarnings(yCor <- abs(coop::pcor(dataMat, use = "pairwise.complete.obs")))
   yCor[is.na(yCor)] <- 0
 
-  # get r-corrs - unlike cor() pcor() cannot accept logical matrix. To force
+  # get r-corrs - unlike cor pcor cannot accept logical matrix. To force
   # numeric while preserving matrix dimensions, we use rMat*rMat
   suppressWarnings(rCor <- abs(coop::pcor(rMat*rMat, use = "pairwise.complete.obs")))
   rCor[is.na(rCor)] <- 0

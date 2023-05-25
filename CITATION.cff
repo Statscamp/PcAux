@@ -1,0 +1,168 @@
+# -----------------------------------------------------------
+# CITATION file created with {cffr} R package, v0.4.1
+# See also: https://docs.ropensci.org/cffr/
+# -----------------------------------------------------------
+
+cff-version: 1.2.0
+message: 'To cite package "PcAux" in publications use:'
+type: software
+license: GPL-3.0-or-later
+title: 'PcAux: Principle Components Auxiliary Variables'
+version: 0.9.20
+abstract: Automatically extract auxiliary features for simple, principled missing
+  data analysis.
+authors:
+- family-names: Lang
+  given-names: Kyle
+  email: k.m.lang@uvt.nl
+- family-names: Little
+  given-names: Todd
+  email: todd.little@ttu.edu
+repository-code: https://github.com/Statscamp/PcAux
+url: https://github.com/Statscamp/PcAux
+contact:
+- family-names: Squire
+  given-names: Danny
+  email: danny.squire@ttu.edu
+references:
+- type: software
+  title: 'R: A Language and Environment for Statistical Computing'
+  notes: Depends
+  url: https://www.R-project.org/
+  authors:
+  - name: R Core Team
+  location:
+    name: Vienna, Austria
+  year: '2023'
+  institution:
+    name: R Foundation for Statistical Computing
+  version: '>= 3.5.0'
+- type: software
+  title: coop
+  abstract: 'coop: Co-Operation: Fast Covariance, Correlation, and Cosine Similarity
+    Operations'
+  notes: Imports
+  url: https://github.com/wrathematics/coop
+  repository: https://CRAN.R-project.org/package=coop
+  authors:
+  - family-names: Schmidt
+    given-names: Drew
+    email: wrathematics@gmail.com
+  year: '2023'
+- type: software
+  title: ICC
+  abstract: 'ICC: Facilitating Estimation of the Intraclass Correlation Coefficient'
+  notes: Imports
+  url: https://github.com/matthewwolak/ICC
+  repository: https://CRAN.R-project.org/package=ICC
+  authors:
+  - family-names: Wolak
+    given-names: Matthew
+    email: matthewwolak@gmail.com
+  year: '2023'
+- type: software
+  title: methods
+  abstract: 'R: A Language and Environment for Statistical Computing'
+  notes: Imports
+  authors:
+  - name: R Core Team
+  location:
+    name: Vienna, Austria
+  year: '2023'
+  institution:
+    name: R Foundation for Statistical Computing
+- type: software
+  title: mice
+  abstract: 'mice: Multivariate Imputation by Chained Equations'
+  notes: Imports
+  url: https://amices.org/mice/
+  repository: https://CRAN.R-project.org/package=mice
+  authors:
+  - family-names: van Buuren
+    given-names: Stef
+    email: stef.vanbuuren@tno.nl
+  - family-names: Groothuis-Oudshoorn
+    given-names: Karin
+    email: c.g.m.oudshoorn@utwente.nl
+  year: '2023'
+- type: software
+  title: parallel
+  abstract: 'R: A Language and Environment for Statistical Computing'
+  notes: Imports
+  authors:
+  - name: R Core Team
+  location:
+    name: Vienna, Austria
+  year: '2023'
+  institution:
+    name: R Foundation for Statistical Computing
+- type: software
+  title: purrr
+  abstract: 'purrr: Functional Programming Tools'
+  notes: Imports
+  url: https://purrr.tidyverse.org/
+  repository: https://CRAN.R-project.org/package=purrr
+  authors:
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@rstudio.com
+    orcid: https://orcid.org/0000-0003-4757-117X
+  - family-names: Henry
+    given-names: Lionel
+    email: lionel@rstudio.com
+  year: '2023'
+- type: software
+  title: rlecuyer
+  abstract: 'rlecuyer: R Interface to RNG with Multiple Streams'
+  notes: Imports
+  url: http://www.iro.umontreal.ca/~lecuyer/myftp/papers/streams00.pdf
+  repository: https://CRAN.R-project.org/package=rlecuyer
+  authors:
+  - family-names: Sevcikova
+    given-names: Hana
+    email: hanas@uw.edu
+  - family-names: Rossini
+    given-names: Tony
+    email: anthony.rossini@novartis.com
+  year: '2023'
+- type: software
+  title: stats
+  abstract: 'R: A Language and Environment for Statistical Computing'
+  notes: Imports
+  authors:
+  - name: R Core Team
+  location:
+    name: Vienna, Austria
+  year: '2023'
+  institution:
+    name: R Foundation for Statistical Computing
+- type: software
+  title: utils
+  abstract: 'R: A Language and Environment for Statistical Computing'
+  notes: Imports
+  authors:
+  - name: R Core Team
+  location:
+    name: Vienna, Austria
+  year: '2023'
+  institution:
+    name: R Foundation for Statistical Computing
+- type: software
+  title: vcd
+  abstract: 'vcd: Visualizing Categorical Data'
+  notes: Imports
+  repository: https://CRAN.R-project.org/package=vcd
+  authors:
+  - family-names: Meyer
+    given-names: David
+    email: David.Meyer@R-project.org
+    orcid: https://orcid.org/0000-0002-5196-3048
+  - family-names: Zeileis
+    given-names: Achim
+    email: Achim.Zeileis@R-project.org
+    orcid: https://orcid.org/0000-0003-0918-3766
+  - family-names: Hornik
+    given-names: Kurt
+    email: Kurt.Hornik@R-project.org
+    orcid: https://orcid.org/0000-0003-4198-9911
+  year: '2023'
