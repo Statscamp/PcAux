@@ -393,7 +393,7 @@ doSingleImputation <- function(map, micemethods = micemethods) {
         if(map$verbose > 0) cat("done.\n")
 
         # if(class(map$data) != "try-error") { # mice() didn't crash
-        if(isa(map$data, "data.frame")) {
+        if(!isa(map$data, "try-error")) {
             ## Record any logged events
             map$loggedEvents <- as.data.frame(map$data$loggedEvents)
             ## Save mids
