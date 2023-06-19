@@ -1,6 +1,6 @@
 Package: PcAux
 Title: Principle Components Auxiliary Variables
-Version: 0.9.20
+Version: 0.9.21
 Authors@R: c(
     person("Kyle", "Lang", , "k.m.lang@uvt.nl", role = c("aut", "cre")),
     person("Todd", "Little", , "todd.little@ttu.edu", role = "aut"),
