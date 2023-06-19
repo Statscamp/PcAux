@@ -20,7 +20,7 @@ Imports:
     coop,
     ICC,
     methods,
-    mice,
+    mice (<= 3.15.0),
     parallel,
     purrr,
     rlecuyer,
