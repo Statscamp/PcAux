@@ -229,7 +229,7 @@ miWithPcAux <- function(rawData,
         # We are making the assumption that if mice crashes a mids object won't
         # be created.
         #if(class(pcAuxData$miceObject) != "try-error") {
-        if(isa(pcAuxData$miceObject, "mids")) {
+        if(!isa(pcAuxData$miceObject, "try-error")) {
             pcAuxData$data <- "Removed to save resources."
 
             ## Complete the incomplete data sets:
