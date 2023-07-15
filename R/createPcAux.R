@@ -5,7 +5,7 @@
 #' @param pcAuxData An object of class PcAuxData returned from prepData.
 #' @param nComps A two-element, numeric vector giving the number of linear and
 #'   nonlinear, re- spectively, component scores to extract. See the Details
-#'   section for more infor- mation.
+#'   section for more information.
 #' @param interactType An integer code indicating which method is used to
 #'   incorporate interactions into the initial, single imputation model. See the
 #'   Details section for more informa- tion. Defaults to interactType = 1L.
