@@ -8,7 +8,7 @@ message: 'To cite package "PcAux" in publications use:'
 type: software
 license: GPL-3.0-or-later
 title: 'PcAux: Principle Components Auxiliary Variables'
-version: 0.9.20
+version: 0.9.22
 abstract: Automatically extract auxiliary features for simple, principled missing
   data analysis.
 authors:
