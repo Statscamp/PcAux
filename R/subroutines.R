@@ -170,16 +170,6 @@ castData <- function(map) {
 
             map$setTime("usrNomsStr")
 
-            userAnswer <-
-                readline("Do you want to continue the analysis? (y/N) ")
-            ansCheck <- grep("y|yes", userAnswer, ignore.case = TRUE)
-
-            if(length(ansCheck) == 0) {
-                errFun("userKill")
-            } else {
-                cat("\nAs you wish.\n")
-            }
-
             map$setTime("usrNomsEnd")
 
         }
@@ -189,34 +179,14 @@ castData <- function(map) {
 
             map$setTime("usrOrdsStr")
 
-            userAnswer <-
-                readline("Do you want to continue the analysis? (y/N) ")
-            ansCheck <- grep("y|yes", userAnswer, ignore.case = TRUE)
-
-            if(length(ansCheck) == 0) {
-                errFun("userKill")
-            } else {
-                cat("\nAs you wish.\n")
-            }
-
             map$setTime("usrOrdsEnd")
 
         }
 
         if(length(map$probCons) > 0) {# Any suspicious continuous variables?
-            warnFun("badCons", map)
+            # warnFun("badCons", map)
 
             map$setTime("usrConsStr")
-
-            userAnswer <-
-                readline("Do you want to continue the analysis? (y/N) ")
-            ansCheck <- grep("y|yes", userAnswer, ignore.case = TRUE)
-
-            if(length(ansCheck) == 0) {
-                errFun("userKill")
-            } else {
-                cat("\nAs you wish.\n")
-            }
 
             map$setTime("usrConsEnd")
 
