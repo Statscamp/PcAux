@@ -8,7 +8,7 @@
 #'   section for more infor- mation.
 #' @param interactType An integer code indicating which method is used to
 #'   incorporate interactions into the initial, single imputation model. See the
-#'   Details section for more informa- tion. Defaults to interactType = 1L.
+#'   Details section for more information. Defaults to interactType = 1L.
 #' @param maxPolyPow An integer giving the maximum power used when constructing
 #'   the polynomial terms. Setting maxPolyPow = 1L has the effect of excluding
 #'   any polynomial terms from the imputation model. Defaults to maxPolyPow =
@@ -33,7 +33,7 @@
 #'   the data element in pcAuxData has no missing values (e.g., the imputation
 #'   was done elsewhere). Defaults to doImputation = TRUE.
 #' @param castData A logical switch indicating whether the data element in
-#'   pcAuxDatashould have its variables re-typed. Keep as FALSE unless the data
+#'   pcAuxData should have its variables re-typed. Keep as FALSE unless the data
 #'   have been manipulated after running prepData. Defaults to castData = FALSE.
 #' @param control An optional list of control parameters (see ’Details’).
 #' @param micemethods A list of mice methods to use for imputation.
@@ -124,8 +124,6 @@ createPcAux <- function(pcAuxData,
     if(pcAuxData$intMeth == 1) {
         pcAuxData$computeInteract()
         pcAuxData$data     <- with(pcAuxData, data.frame(data, interact))
-        write.csv(pcAuxData$data, file = "C:\Users\Danny Squire\Documents\Projects\data.csv")
-        write.csv(pcAuxData$interact, file = "C:\Users\Danny Squire\Documents\Projects\interact.csv")
         pcAuxData$interact <- "Removed to save resources"
     }
 
@@ -168,6 +166,9 @@ createPcAux <- function(pcAuxData,
 
         ## Construct and orthogonalize interaction terms:
         if(pcAuxData$intMeth > 1) pcAuxData$computeInteract()
+
+      write.csv(pcAuxData$data, file = "C:\Users\Danny Squire\Documents\Projects\data.csv")
+      write.csv(pcAuxData$interact, file = "C:\Users\Danny Squire\Documents\Projects\interact.csv")
 
         ## Extract the nonlinear principal component scores:
         doPCA(map = pcAuxData)

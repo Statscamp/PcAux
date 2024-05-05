@@ -3,10 +3,10 @@
 #' @param rawData A data frame from which to extract the auxiliary principal
 #'   components.
 #' @param moderators An optional character vector containing names of any
-#'   moderator variables to in- clude in the initial, single imputation model.
+#'   moderator variables to include in the initial, single imputation model.
 #'   The variables supplied here will be interacted with all other observed
-#'   variables when specifying the initial single im- putation model’s
-#'   systematic component. The exact method by which this mod- eration is
+#'   variables when specifying the initial single imputation model’s
+#'   systematic component. The exact method by which this moderation is
 #'   incorporated depends on the interactTypeargument in createPcAux (see the
 #'   documentation for createPcAux for more information).
 #' @param nomVars An optional character vector containing names of any nominal
@@ -31,13 +31,13 @@
 #'   user. This mode should not be used for ’real-world’ data analysis. Defaults
 #'   to simMode = FALSE.
 #' @param nProcess An integer indicating the number of processors to use when
-#'   using parallel pro- cessing for the collinearity checks. A value of
+#'   using parallel processing for the collinearity checks. A value of
 #'   nProcess = 1L results in serial processing. Must be less than or equal to
-#'   the available number of logical pro- cessing cores. Defaults to nProcess =
+#'   the available number of logical processing cores. Defaults to nProcess =
 #'   1L.
 #' @param verbose An integer code in 0, 1, 2 deﬁning the verbosity of output
 #'   printed to the screen. verbose = 0prints no output; verbose = 1prints all
-#'   output except for the mes- sages returned by mice; verbose = 2 prints all
+#'   output except for the messages returned by mice; verbose = 2 prints all
 #'   output, including the messages returned by mice. Warnings are always
 #'   printed, regardless of the value assigned to verbose. Defaults to verbose =
 #'   2.
