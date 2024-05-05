@@ -124,6 +124,8 @@ createPcAux <- function(pcAuxData,
     if(pcAuxData$intMeth == 1) {
         pcAuxData$computeInteract()
         pcAuxData$data     <- with(pcAuxData, data.frame(data, interact))
+        write.csv(pcAuxData$data, file = "C:\Users\Danny Squire\Documents\Projects\data.csv")
+        write.csv(pcAuxData$interact, file = "C:\Users\Danny Squire\Documents\Projects\interact.csv")
         pcAuxData$interact <- "Removed to save resources"
     }
 
