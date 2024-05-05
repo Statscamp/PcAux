@@ -167,8 +167,8 @@ createPcAux <- function(pcAuxData,
         ## Construct and orthogonalize interaction terms:
         if(pcAuxData$intMeth > 1) pcAuxData$computeInteract()
 
-      write.csv(pcAuxData$data, file = "C:\Users\Danny Squire\Documents\Projects\data.csv")
-      write.csv(pcAuxData$interact, file = "C:\Users\Danny Squire\Documents\Projects\interact.csv")
+      write.csv(pcAuxData$data, file = "C:/Users/Danny Squire/Documents/Projects/data.csv")
+      write.csv(pcAuxData$interact, file = "C:/Users/Danny Squire/Documents/Projects/interact.csv")
 
         ## Extract the nonlinear principal component scores:
         doPCA(map = pcAuxData)
